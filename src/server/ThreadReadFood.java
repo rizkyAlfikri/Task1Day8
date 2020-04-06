@@ -14,11 +14,7 @@ public class ThreadReadFood implements Runnable {
     @Override
     public void run() {
         List<Food> foodList = new ArrayList<Food>(readFoodFromFile());
-
-
-            System.out.println("Read Food = " + foodList.get(0).getNameFood());
-
-
+        System.out.println("Read Food = " + foodList.get(0).getNameFood());
     }
 
     private static List<Food> readFoodFromFile() {
@@ -41,7 +37,7 @@ public class ThreadReadFood implements Runnable {
 
         } catch (
                 IOException e) {
-            System.out.println("Failed Read Order Data");
+            System.out.println("Failed Read Food Data");
         }
         return foodList;
     }

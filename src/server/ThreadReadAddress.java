@@ -39,7 +39,7 @@ public class ThreadReadAddress implements Runnable {
 
         } catch (
                 IOException e) {
-            System.out.println("Failed Read Order Data");
+            System.out.println("Failed Read Address Data");
         }
         return addressList;
     }

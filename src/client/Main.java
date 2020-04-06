@@ -12,20 +12,29 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ExecutorService executorService = Executors.newFixedThreadPool(4);
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
         int i = 0;
 
-        while (i < 100) {
-            addFoodData();
-            addAddressData();
-            ThreadFood threadFood = new ThreadFood(food);
-            ThreadAddress threadAddress = new ThreadAddress(address);
 
-            executorService.execute(threadFood);
-            executorService.execute(threadAddress);
+        try {
+            while (i < 100) {
+                addFoodData();
+                addAddressData();
+                ThreadFood threadFood = new ThreadFood(food);
+                ThreadAddress threadAddress = new ThreadAddress(address);
 
-            i++;
+                executorService.execute(threadFood);
+                Thread.sleep(1000);
+                executorService.execute(threadAddress);
+                Thread.sleep(1000);
+
+
+                i++;
+            }
+        } catch (InterruptedException e) {
+            System.out.println(e);
         }
+
 
     }
 
